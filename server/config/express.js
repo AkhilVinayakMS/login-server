@@ -36,7 +36,7 @@ app.use(helmet());
 
 // enable CORS - Cross Origin Resource Sharing
 app.use(cors());
-
+console.log("reaching111")
 // enable authentication
 app.use(passport.initialize());
 passport.use('jwt', strategies.jwt);

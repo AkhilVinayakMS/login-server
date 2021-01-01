@@ -9,7 +9,7 @@
       "runtimeArgs": [
         "--inspect"
       ],
-      "program": "${workspaceRoot}/src/index.js",
+      "program": "${workspaceRoot}/server/index.js",
       "restart": true,
       "port": 9229,
       "protocol": "inspector",
@@ -24,7 +24,7 @@
       "runtimeArgs": [
         "--inspect"
       ],
-      "program": "${workspaceRoot}/src/index.js",
+      "program": "${workspaceRoot}/server/index.js",
       "restart": true,
       "port": 9229,
       "protocol": "inspector",

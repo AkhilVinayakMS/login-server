@@ -4,3 +4,9 @@ services:
     command: yarn dev -- -L
     environment:
       - NODE_ENV=development
+    depends_on:
+      - mongodb
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
