@@ -38,17 +38,15 @@ const userSchema = new mongoose.Schema({
     index: true,
     trim: true,
   },
-  services: {
-    facebook: String,
-    google: String,
-  },
-  role: {
+  firstName: {
     type: String,
-    enum: roles,
-    default: 'user',
-  },
-  picture: {
+    maxlength: 128,
+    index: true,
+    trim: true,
+  },  lastName: {
     type: String,
+    maxlength: 128,
+    index: true,
     trim: true,
   },
 }, {
@@ -82,7 +80,7 @@ userSchema.pre('save', async function save(next) {
 userSchema.method({
   transform() {
     const transformed = {};
-    const fields = ['id', 'name', 'email', 'picture', 'role', 'createdAt'];
+    const fields = ['id', 'name', 'email', 'picture', 'role', 'createdAt','firstName','lastName'];
 
     fields.forEach((field) => {
       transformed[field] = this[field];
@@ -200,11 +198,7 @@ userSchema.statics = {
     if (error.name === 'MongoError' && error.code === 11000) {
       return new APIError({
         message: 'Validation Error',
-        errors: [{
-          field: 'email',
-          location: 'body',
-          messages: ['"email" already exists'],
-        }],
+        errors: "email already exists",
         status: httpStatus.CONFLICT,
         isPublic: true,
         stack: error.stack,

@@ -74,7 +74,6 @@ router.route('/register')
 router.route('/login')
   .post(validate(login), controller.login);
 
-
 /**
  * @api {post} v1/auth/refresh-token Refresh Token
  * @apiDescription Refresh expired accessToken
@@ -96,8 +95,5 @@ router.route('/login')
  */
 router.route('/refresh-token')
   .post(validate(refresh), controller.refresh);
-
-
-
 
 module.exports = router;
